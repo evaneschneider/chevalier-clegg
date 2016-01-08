@@ -107,6 +107,25 @@ def read_five_arrays(fname):
     f[i] = float(fl[i].split()[4])
   return a,b,c,d,f
 
+def read_six_arrays(fname):
+  fp = open(fname,"r")
+  fl = fp.readlines()
+  n = len(fl)
+  a = np.zeros(n)
+  b = np.zeros(n)
+  c = np.zeros(n)
+  d = np.zeros(n)
+  f = np.zeros(n)
+  g = np.zeros(n)
+  for i in range(n):
+    a[i] = float(fl[i].split()[0])
+    b[i] = float(fl[i].split()[1])
+    c[i] = float(fl[i].split()[2])
+    d[i] = float(fl[i].split()[3])
+    f[i] = float(fl[i].split()[4])
+    g[i] = float(fl[i].split()[5])
+  return a,b,c,d,f,g
+
 def read_eight_arrays(fname):
   fp = open(fname,"r")
   fl = fp.readlines()

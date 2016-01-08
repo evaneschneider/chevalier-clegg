@@ -12,6 +12,8 @@ Chevalier::Chevalier(void)
 	parsec_in_km = 3.085678e+13; //parsec in km
 	msun_in_g    = 1.988920e+33;	//msun in g
 	year_in_sec  = 3.155760e+07;	//year in s
+  mp_in_grams  = 1.6735575e-24; //proton in g
+  kb_cgs       = 1.380658e-16; //Boltzmann constant erg/K
 
 	//define the GSL root solver to use
 	grsolve_T = gsl_root_fsolver_brent;
@@ -90,6 +92,20 @@ double Chevalier::Pressure(double r)
 	P = c*c*rho/gamma;	//pressure in cgs
 
 	return P; //in dyn cm^-2
+}
+double Chevalier::Temperature(double r)
+{
+  //temperature in K
+  double T;
+  double P = Pressure(r); // dyn cm^-2
+	double u    = WindVelocity(r); 	//km/s
+  double rho = Density(r); // g/cm^3
+  double n = rho / mp_in_grams;
+
+
+  T = P / (n*kb_cgs);
+
+  return T; //in Kelvin
 }
 double Chevalier::Density(double r)
 {

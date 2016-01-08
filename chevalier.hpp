@@ -17,12 +17,15 @@ public:
   double parsec_in_km;	//convert parsec to km
   double msun_in_g;		//convert msun to g
   double year_in_sec;	//convert year to sec
+  double mp_in_grams; //mass of hydrogen atom in grams
+  double kb_cgs; //Boltzmann constant in cgs units
 
   Chevalier(void);	//constructor
   void SetChevalier(double M_dot_in, double E_dot_in, double gamma_in, double R_in);
   double MachNumber(double r);		//mach number vs. radius
   double MomentumDensity(double r);	//momentum density vs. radius in Msun/pc^3 * km/s
   double Pressure(double r);		//Pressure in dyn cm^-2
+  double Temperature(double r); //Temperature in K
   double Density(double r);			//density in g cm^-3
   double WindVelocity(double r);	//wind velocity in km/s
   double EnergyIntegral(double r);	//msun/yr (km/s)^2 / pc^3
