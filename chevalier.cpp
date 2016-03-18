@@ -20,10 +20,10 @@ Chevalier::Chevalier(void)
 	grsolve   = gsl_root_fsolver_alloc(grsolve_T);
 
 	//set a default model
-	double M_dot_in		=  1.0;		//Mass input in Msun/yr
-	double E_dot_in		= 43.0;		//log E in erg / s
+	double M_dot_in		=  2.0;		//Mass input in Msun/yr
+	double E_dot_in		= 42.0;		//log E in erg / s
 	double gamma_in 	= 5./3.;	//gamma = 5/3
-	double R_in 		= 200.;		//parsec
+	double R_in 		= 300.;		//parsec
 
 	//set the mode parameters
 	SetChevalier(M_dot_in, E_dot_in, gamma_in, R_in);
@@ -192,7 +192,7 @@ double Chevalier::MachNumber(double r)
 	int    status;
 	int    iter = 0;
 	int    max_iter = 100;	
-	double M_lo = 1.0e-5;
+	double M_lo = 1.0e-6;
 	double M_hi = 5.;
 	double answer;
 
@@ -203,7 +203,7 @@ double Chevalier::MachNumber(double r)
 	//choose which solution to use
 	if(x<=1.0)
 	{
-		M_lo = 1.0e-5;
+		M_lo = 1.0e-6;
 		M_hi = 1.0;
 		func.function = &mach_crossing_A;
 	}else{

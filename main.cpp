@@ -7,7 +7,7 @@ int main(int argc, char **argv)
 	Chevalier C;
 	int		n_r = 1000;
 	double	r_min = 1.0e-2;
-	double	r_max = 200.0*pow(10.,1.0); //r_max in pc
+	double	r_max = 1000.0*pow(10.,1.0); //r_max in pc
 	double	r;
 
 	double	M;
@@ -20,12 +20,27 @@ int main(int argc, char **argv)
 	char fname[200];
 
 	r = 1.0e-2;
+	printf("r %e P0 %e rho0 %e u0 %e T0 %e\n",r,C.Pressure(r)/C.kb_cgs,C.Density(r)/C.mp_in_grams,C.WindVelocity(r),C.Temperature(r));
+	printf("r %e Mach %e u %e\n",r,C.MachNumber(r),C.WindVelocity(r));
+	printf("x %e rho_star %e P_star %e u_star %e\n\n",r/C.R,C.rho_star(r),C.P_star(r),C.u_star(r)/(r/C.R));
+
+	r = 300.;
 	printf("r %e P0 %e rho0 %e u0 %e T0 %e\n",r,C.Pressure(r),C.Density(r),C.WindVelocity(r),C.Temperature(r));
 	printf("r %e Mach %e u %e\n",r,C.MachNumber(r),C.WindVelocity(r));
 	printf("x %e rho_star %e P_star %e u_star %e\n\n",r/C.R,C.rho_star(r),C.P_star(r),C.u_star(r)/(r/C.R));
 
-	r = 200.;
+	r = 500.;
 	printf("r %e P0 %e rho0 %e u0 %e T0 %e\n",r,C.Pressure(r),C.Density(r),C.WindVelocity(r),C.Temperature(r));
+	printf("r %e Mach %e u %e\n",r,C.MachNumber(r),C.WindVelocity(r));
+	printf("x %e rho_star %e P_star %e u_star %e\n\n",r/C.R,C.rho_star(r),C.P_star(r),C.u_star(r)/(r/C.R));
+
+	r = 700.;
+	printf("r %e P0 %e rho0 %e u0 %e T0 %e\n",r,C.Pressure(r),C.Density(r),C.WindVelocity(r),C.Temperature(r));
+	printf("r %e Mach %e u %e\n",r,C.MachNumber(r),C.WindVelocity(r));
+	printf("x %e rho_star %e P_star %e u_star %e\n\n",r/C.R,C.rho_star(r),C.P_star(r),C.u_star(r)/(r/C.R));
+
+	r = 1000.;
+	printf("r %e P0 %e rho0 %e u0 %e T0 %e\n",r,C.Pressure(r)/C.kb_cgs,C.Density(r)/C.mp_in_grams,C.WindVelocity(r),C.Temperature(r));
 	printf("r %e Mach %e u %e\n",r,C.MachNumber(r),C.WindVelocity(r));
 	printf("x %e rho_star %e P_star %e u_star %e\n\n",r/C.R,C.rho_star(r),C.P_star(r),C.u_star(r)/(r/C.R));
 
